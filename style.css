@@ -80,6 +80,7 @@
   label {
     display: inline-block;
     margin: 10px 0;
+    color: rgb(61, 61, 70);
   }
   
   input[type="text"],
