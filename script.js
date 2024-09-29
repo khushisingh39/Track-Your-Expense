@@ -16,7 +16,6 @@ const balance = document.getElementById(
   
   let transactions = localStorage.getItem('transactions') !== null ? localStorageTransactions : [];
   
-  //Add Transaction
   function addTransaction(e){
     e.preventDefault();
     if(text.value.trim() === '' || amount.value.trim() === ''){
@@ -38,18 +37,14 @@ const balance = document.getElementById(
     }
   }
   
-  //Generate Random ID
   function generateID(){
     return Math.floor(Math.random()*1000000000);
   }
   
-  //Add Trasactions to DOM list
   function addTransactionDOM(transaction) {
-    //GET sign
     const sign = transaction.amount < 0 ? "-" : "+";
     const item = document.createElement("li");
   
-    //Add Class Based on Value
     item.classList.add(
       transaction.amount < 0 ? "minus" : "plus"
     );
@@ -63,7 +58,6 @@ const balance = document.getElementById(
     list.appendChild(item);
   }
   
-  //Update the balance income and expence
   function updateValues() {
     const amounts = transactions.map(
       (transaction) => transaction.amount
@@ -86,18 +80,15 @@ const balance = document.getElementById(
       money_minus.innerText = `Rs. ${expense}`;
   }
   
-  //Remove Transaction by ID
   function removeTransaction(id){
     transactions = transactions.filter(transaction => transaction.id !== id);
     updateLocalStorage();
     Init();
   }
-  //update Local Storage Transaction
   function updateLocalStorage(){
     localStorage.setItem('transactions',JSON.stringify(transactions));
   }
   
-  //Init App
   function Init() {
     list.innerHTML = "";
     transactions.forEach(addTransactionDOM);
