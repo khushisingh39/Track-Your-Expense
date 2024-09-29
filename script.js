@@ -1,4 +1,3 @@
-//1
 const balance = document.getElementById(
     "balance"
   );
@@ -12,21 +11,11 @@ const balance = document.getElementById(
   const form = document.getElementById("form");
   const text = document.getElementById("text");
   const amount = document.getElementById("amount");
-  // const dummyTransactions = [
-  //   { id: 1, text: "Flower", amount: -20 },
-  //   { id: 2, text: "Salary", amount: 300 },
-  //   { id: 3, text: "Book", amount: -10 },
-  //   { id: 4, text: "Camera", amount: 150 },
-  // ];
-  
-  // let transactions = dummyTransactions;
-  
-  //last 
+ 
   const localStorageTransactions = JSON.parse(localStorage.getItem('transactions'));
   
   let transactions = localStorage.getItem('transactions') !== null ? localStorageTransactions : [];
   
-  //5
   //Add Transaction
   function addTransaction(e){
     e.preventDefault();
@@ -49,14 +38,10 @@ const balance = document.getElementById(
     }
   }
   
-  
-  //5.5
   //Generate Random ID
   function generateID(){
     return Math.floor(Math.random()*1000000000);
   }
-  
-  //2
   
   //Add Trasactions to DOM list
   function addTransactionDOM(transaction) {
@@ -77,8 +62,6 @@ const balance = document.getElementById(
       `;
     list.appendChild(item);
   }
-  
-  //4
   
   //Update the balance income and expence
   function updateValues() {
@@ -103,22 +86,16 @@ const balance = document.getElementById(
       money_minus.innerText = `Rs. ${expense}`;
   }
   
-  
-  //6 
-  
   //Remove Transaction by ID
   function removeTransaction(id){
     transactions = transactions.filter(transaction => transaction.id !== id);
     updateLocalStorage();
     Init();
   }
-  //last
   //update Local Storage Transaction
   function updateLocalStorage(){
     localStorage.setItem('transactions',JSON.stringify(transactions));
   }
-  
-  //3
   
   //Init App
   function Init() {
