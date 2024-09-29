@@ -20,7 +20,7 @@ const balance = document.getElementById(
   function addTransaction(e){
     e.preventDefault();
     if(text.value.trim() === '' || amount.value.trim() === ''){
-      alert('please add text and amount')
+      alert('Mention how much and where did you spend...')
     }else{
       const transaction = {
         id:generateID(),
